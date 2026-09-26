@@ -16,6 +16,8 @@ Work in **Agent mode**: this workflow needs command execution, MCP tools, file e
 - Never call a location clean unless the inspector checked it. Anything unchecked is **not verified**.
 - Run experiments only on synthetic records: an owner like `user-0NN` and a canary string `FG-CANARY-…` in the seed file. If the target isn't synthetic, stop and tell the user.
 - Delete only through the application's own delete path. Never remove leftovers directly from a store; that hides the bug instead of fixing it.
+- Never write to a store yourself, even to test a theory: no hand-written SQL, vector-store calls or file edits against live data. Observe with `inspect_record`, and change state only through `reset_fixture`, `run_deletion_experiment` and the app's own endpoints.
+- Describe code exactly. If a setting is off because nothing turns it on, say that; don't write that the code sets it off.
 - Don't edit the inspector, the seed data, the reset path or tests to make a result pass.
 
 ## Input
@@ -56,6 +58,8 @@ Merge the three results with the claimed inventory into one **observed inventory
 
 Call the MCP tool `run_deletion_experiment` with the record ID. It resets the fixture, inspects every reachable store, deletes the record through the app's API, and inspects again. Report the delete response and a before/after table per location. If the verdict is `invalid` (the record wasn't present before the delete, or the app couldn't be reached), fix the setup and rerun; never interpret an invalid run.
 
+If the result contradicts the code trace (for example, step 3 found no working removal path but the verdict is `clean`), check first that the running app is serving the code on disk. Find the process listening on the app's port, and compare its start time with the modification times of the app's source files. If it started earlier and isn't auto-reloading, ask the user to restart it, and don't count runs against it as evidence. Don't restart it yourself.
+
 If step 3 found a path that copies data back into a read path, trigger it once after the delete (for example with `curl` against its endpoint) and call `inspect_record` again. Data that reappears is a finding.
 
 ## Step 5 — Diagnose
@@ -70,12 +74,12 @@ Mark suspected gaps from step 3 that the experiment didn't confirm as **not conf
 
 ## Step 6 — Propose the repair
 
-Write the smallest patch that makes the app's own delete path remove the data everywhere it survived. Prefer:
+Write the smallest patch that makes the app's own delete path remove the data everywhere it survived. Wherever the stores allow it, the patch must:
 
-- deleting by the same IDs or keys the write path used;
-- explicit deletes over mechanisms that depend on runtime settings;
-- removing derived copies before the source of truth, so a failure leaves the record visibly present and retryable rather than half-deleted;
-- checking what each delete actually removed, and failing loudly when a store that held the record reports nothing removed.
+- delete by the same IDs or keys the write path used;
+- use explicit deletes rather than mechanisms that depend on runtime settings;
+- remove derived copies before the source of truth, so a failure leaves the record visibly present and retryable rather than half-deleted;
+- verify after each delete that nothing matching the record remains in that store, and return an error instead of success if something does.
 
 Keep the API contract unchanged. Show the diff and explain each change in one sentence. Wait for the user's approval before applying it, unless they already told you to go ahead.
 

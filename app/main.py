@@ -231,7 +231,6 @@ def reset():
     conn = db.get_connection()
     conn.execute("DROP TABLE IF EXISTS chunks")
     conn.execute("DROP TABLE IF EXISTS documents")
-    conn.execute("PRAGMA foreign_keys = ON")
     db.init_schema(conn)
     conn.close()
 

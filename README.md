@@ -44,8 +44,8 @@ Expected response:
 ```json
 {
   "documents": 6,
-  "chunks": 18,
-  "vectors": 18
+  "chunks": 14,
+  "vectors": 14
 }
 ```
 
