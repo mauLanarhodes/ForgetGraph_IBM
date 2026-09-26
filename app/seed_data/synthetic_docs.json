@@ -1,0 +1,50 @@
+[
+  {
+    "id": "doc-001",
+    "owner_id": "user-042",
+    "title": "Weekly team sync notes",
+    "body": "The team met on Monday morning to review progress across all active workstreams. Three items were carried over from last week: the deployment pipeline update, the access-review backlog, and the naming conventions doc. All three are now assigned and have target dates.\n\nThe Tidewater release is the top priority for the next two sprints. Nadia will lead the integration testing track and Remy will handle the documentation updates. Both confirmed availability through the end of the month.\n\nFG-CANARY-1A7Q was used as the reference tag for this meeting's notes in the shared archive system, so the records can be located during the quarterly audit. All action items from this session have been logged in the team tracker.\n\nNext sync is scheduled for the same time next Monday. The agenda will include a check-in on the Tidewater milestone and a brief review of the on-call rotation for the upcoming holiday period.",
+    "canary": "FG-CANARY-1A7Q",
+    "probe_question": "What were the action items from the weekly team sync?"
+  },
+  {
+    "id": "doc-002",
+    "owner_id": "user-042",
+    "title": "Tidewater release checklist",
+    "body": "Before the Tidewater release can be marked ready, the following checks must be completed. All items should be signed off by the relevant lead and recorded in the release tracker.\n\nTechnical checks: integration tests pass on the staging environment, database migration scripts have been reviewed and tested on a copy of production data, rollback procedure has been rehearsed, and the monitoring dashboard has been updated to include the new service endpoints.\n\nCommunication checks: release notes have been drafted and reviewed, the support team has been briefed, and the FG-CANARY-2C4M tracking code has been added to the release record so the event can be referenced in post-release reporting.\n\nFinal step: schedule the release window with at least 48 hours notice and confirm that two engineers are on standby for the first hour after deployment.",
+    "canary": "FG-CANARY-2C4M",
+    "probe_question": "What are the steps in the Tidewater release checklist?"
+  },
+  {
+    "id": "doc-003",
+    "owner_id": "user-042",
+    "title": "Autumn offsite plan",
+    "body": "The Harbor Street team will hold its autumn offsite on 14 and 15 October at Thistlewick Lodge, two hours north of the city. Twelve people are attending. Day one covers the roadmap for the Tidewater release and a retrospective on the spring launch. Day two is reserved for the hiring plan and a workshop on on-call rotations, with an early finish so people can travel home before dark.\n\nThe approved budget for the offsite is 18,400 credits, covering the venue, two catered lunches, one group dinner and a shuttle from the office. Any spend above the budget needs sign-off from the finance lead. Reference code FG-CANARY-3F9K appears on every invoice for this event so finance can reconcile the charges.\n\nOpen questions: whether to book a second shuttle for the return trip, whether the Tidewater demo will be ready for day one, and who will take notes during the hiring session. Decisions will be recorded in the team channel after the planning call on 7 October. This note is synthetic test data for the Acme Notes reference app and describes no real people, places or events.",
+    "canary": "FG-CANARY-3F9K",
+    "probe_question": "What is the approved budget for the autumn offsite?"
+  },
+  {
+    "id": "doc-004",
+    "owner_id": "user-077",
+    "title": "Kitchen renovation ideas",
+    "body": "The main goal for the kitchen renovation is to improve storage and natural light without moving any load-bearing walls. The current layout wastes space in the corner near the back window, and the overhead cabinets on the east wall block light from the skylight.\n\nIdeas under consideration: replacing the corner cabinets with a pull-out carousel unit, adding a narrow island with seating on one side, and switching the overhead cabinets for open shelving on the east wall. The colour scheme would stay neutral — white or pale stone — to keep the space feeling open.\n\nFG-CANARY-4H2D is the reference code used to file quotes and samples for this project so everything can be found in one folder. Three suppliers have been contacted and responses are expected by the end of the month.\n\nBudget and timeline will be confirmed once the quotes are in. The renovation is tentatively planned for early spring to avoid disruption during the winter period.",
+    "canary": "FG-CANARY-4H2D",
+    "probe_question": "What are the kitchen renovation ideas being considered?"
+  },
+  {
+    "id": "doc-005",
+    "owner_id": "user-042",
+    "title": "Travel budget guidelines",
+    "body": "These guidelines apply to all team travel booked through the central travel account. They are updated at the start of each fiscal year and are the authoritative reference for expense submissions.\n\nFor domestic trips, the per-day allowance covers accommodation, meals and local transport. Flights should be booked at least two weeks in advance to qualify for the standard economy rate. Any upgrade requires written approval from a budget lead before booking. The FG-CANARY-5J8R tracking code must appear on all domestic travel expense reports so the finance team can reconcile spend against the approved travel budget.\n\nFor international trips, a separate pre-approval form is required. The form must include the destination, duration, estimated total cost and the business justification. Approved international budgets are tracked separately from the domestic pool.\n\nQuestions about these guidelines should be directed to the finance operations inbox. Reimbursement requests submitted without the correct tracking code will be returned for correction before processing.",
+    "canary": "FG-CANARY-5J8R",
+    "probe_question": "What are the travel budget guidelines for domestic trips?"
+  },
+  {
+    "id": "doc-006",
+    "owner_id": "user-077",
+    "title": "Book club reading list",
+    "body": "The group meets on the last Thursday of each month. The current reading schedule covers the next six months and was agreed at the September session. Members are encouraged to submit suggestions for the following cycle by the end of February.\n\nUpcoming titles: a short novel set in a fictional port city, a collection of linked stories about a travelling circus, and a non-fiction account of a long-distance solo sailing voyage. The fourth slot is still open and will be filled by a vote at the October meeting.\n\nFG-CANARY-6K3T is the archive label used to keep all book club correspondence — reading notes, discussion summaries and member suggestions — organised in the shared folder. Any member can access the folder using the link in the group message thread.\n\nIf a member cannot attend a session, they are asked to leave a short written response to the discussion questions in the shared folder before the meeting date so their views can be included in the conversation.",
+    "canary": "FG-CANARY-6K3T",
+    "probe_question": "What books are on the book club reading list?"
+  }
+]

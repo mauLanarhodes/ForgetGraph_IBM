@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "forgetgraph": {
+      "command": "/ABSOLUTE/PATH/forgetgraph/.venv/bin/python",
+      "args": ["-m", "inspector.mcp_server"],
+      "cwd": "/ABSOLUTE/PATH/forgetgraph",
+      "env": {
+        "FG_APP_URL": "http://127.0.0.1:8000",
+        "FG_CHROMA_PORT": "8001"
+      },
+      "alwaysAllow": ["inspect_record"]
+    }
+  }
+}
